@@ -184,7 +184,7 @@ static void setup_ecc_key(SSL_CTX *ssl_ctx)
 #ifdef SSL_CTX_set_ecdh_auto
     SSL_CTX_set_ecdh_auto(ssl_ctx, 1);
 #else
-    int nid = NID_X9_62_prime256v1;
+    int nid = NID_secp384r1;
     EC_KEY *key = EC_KEY_new_by_curve_name(nid);
     if (key == NULL) {
         fprintf(stderr, "Failed to create curve \"%s\"\n", OBJ_nid2sn(nid));
